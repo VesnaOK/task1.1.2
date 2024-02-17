@@ -9,6 +9,7 @@ public class Util {
     private static final String USERNAME = "Vesnina";
     private static final String PASSWORD = "Willi1210";
     private static Connection connection;
+
     public static Connection getNewConnection() {
 
         try {
@@ -24,7 +25,9 @@ public class Util {
 
     public static void closeConnection() {
         try {
-            connection.close();
+            if (connection != null) {
+                connection.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
