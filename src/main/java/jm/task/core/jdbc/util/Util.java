@@ -8,9 +8,9 @@ public class Util {
     private static final String URL = "jdbc:mysql://localhost:3306/ex";
     private static final String USERNAME = "Vesnina";
     private static final String PASSWORD = "Willi1210";
-
+    private static Connection connection;
     public static Connection getNewConnection() {
-        Connection connection = null;
+
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             if (connection == null) {
@@ -22,7 +22,7 @@ public class Util {
         return connection;
     }
 
-    public static void closeConnection(Connection connection) {
+    public static void closeConnection() {
         try {
             connection.close();
         } catch (SQLException e) {
